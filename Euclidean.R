@@ -17,7 +17,6 @@ euclidean <- function(a, b){
    i <- i + 1
       
   }
-  #test changing
   
   return(remainders_list[i-1])
 }
