@@ -33,6 +33,7 @@ dijkstra <-function(data, init_node){
     pathdata[init_index_ineverynodes, 4] <- 0
     pathdata[init_index_ineverynodes, 3] <- init_node
     visited <-append(visited,init_node)
+    # print(pathdata)
     
       #Step2 calculate the path length next to init_node
     length_of_nodes_next_to_init <- data[neighbor_index_init,3] #get the length data from data(wiki_graph)
@@ -43,11 +44,19 @@ dijkstra <-function(data, init_node){
     first_index_of_current_node <- neighbor_index_init[1]
     
     index_closest_node_to_current_node <- first_index_of_current_node + min(data[neighbor_index_of_current_node,2]) # min returns the index
-    closest_node_to_current_node <- first_index_of_current_node + which(data[neighbor_index_of_current_node,3] == min(data[neighbor_index_of_current_node,3])) -1 # The variable contains the number of the closest node
+    closest_node_to_current_node_index <- first_index_of_current_node + which(data[neighbor_index_of_current_node,3] == min(data[neighbor_index_of_current_node,3])) -1 # The variable contains the number of the closest node
 
     distances = data[neighbor_index_init, 2]
-    closest_node = data[closest_node_to_current_node, 2]
+    closest_node = data[closest_node_to_current_node_index, 2]
     visited <-append(visited,closest_node)
+   
+    closest_node_index_in_pathdata<- which(everynodes %in% closest_node) #find the index of the closet node in pathdata
+    # print(closest_node_index_in_pathdata)
+    pathdata[closest_node_index_in_pathdata,4]<- data[closest_node_to_current_node_index,3] #update the length 
+    pathdata[closest_node_index_in_pathdata,3]<- closest_node # update the previous node
+    print(pathdata)
+    # node_nextto_init <-data[neighbor_index_init,2] #find the node next to init_node
+    
     
     # print(visited)
      while(length(unvisited) > 0 ){
@@ -96,4 +105,4 @@ wiki_graph <-data.frame(v1=c(1,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,6),
                    v2=c(2,3,6,1,3,4,1,2,4,6,2,3,5,4,6,1,3,5),
                    w=c(7,9,14,7,10,15,9,10,11,2,15,11,6,6,9,14,2,9))
 
-dijkstra(wiki_graph,3)
+dijkstra(wiki_graph,2)
