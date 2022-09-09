@@ -1,24 +1,43 @@
 dijkstra <-function(data,init_node){
   if(is.data.frame(data)==TRUE & init_node %in% data[,1]){
     
-    
+    ##setup
     allnodes<-data[,1]  #take every elements from first column of input data
     unvisited<-allnodes[!duplicated(allnodes)] #find out how many different elements in first column of data
     visited<-c() #create a empty vector to store visited nodes later on
     init_nodevector<-rep(init_node,length(unvisited)) #create a list of init_noed with the length of every different nodes (for creating path dataframe)
-    path_length<-rep(999,length(unvisited))
+    path_length<-rep(Inf,length(unvisited))
     previous_nodes<-rep(NA,length(unvisited))
     everynodes<-allnodes[!duplicated(allnodes)] #Use to create path dataframe. In order not to confused with unvisited vector.
     pathdata<-data.frame(init_nodevector,everynodes,previous_nodes,path_length) #create a path dataframe to make calculation easier to see
+   # print(pathdata)
     
+    
+    #find the index of nodes which next to init_node
+    neighbor_index_init<- which(allnodes %in% init_node) #find the row index of init_node
+    node_nextto_init <-data[neighbor_index_init,2] #find the node next to init_node
+    #print(node_nextto_init)
+    
+    #Calculation
+      #Step1 set the path to init_node=0
+    everynodes_index_init<- which(everynodes %in% init_node)
+    pathdata[everynodes_index_init, 4] = 0
     print(pathdata)
-    
-    
     
   }
   
   else{stop("input not correct")}
 }
+
+
+
+
+
+
+
+
+
+
 
 
 ###testing
