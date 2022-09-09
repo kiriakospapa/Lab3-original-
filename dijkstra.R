@@ -16,18 +16,34 @@ dijkstra <-function(data,init_node){
     #find the index of nodes which next to init_node
     neighbor_index_init<- which(allnodes %in% init_node) #find the row index of init_node
     node_nextto_init <-data[neighbor_index_init,2] #find the node next to init_node
-    #print(node_nextto_init)
+    
     
     #Calculation
-      #Step1 set the path to init_node=0
-    everynodes_index_init<- which(everynodes %in% init_node)
-    pathdata[everynodes_index_init, 4] = 0
-    print(pathdata)
+      #Step1 set the path length to init_node=0
+    init_index_ineverynodes<- which(everynodes %in% init_node)
+    pathdata[init_index_ineverynodes, 4] <- 0
+    pathdata[init_index_ineverynodes, 3] <- init_node
+      #Step2 calculate the path length next to init_node
+    length_of_nodes_next_to_init <- data[neighbor_index_init,3] #get the length data from data(wiki_graph)
+    
+    i<-1
+    for(i in length(node_nextto_init)){
+      
+      
+      
+    }
+    
+    
+     print(length_of_nodes_next_to_init)  
+      
+    
+    
+   print(pathdata)   
+  }
+    else{stop()}
     
   }
-  
-  else{stop("input not correct")}
-}
+
 
 
 
