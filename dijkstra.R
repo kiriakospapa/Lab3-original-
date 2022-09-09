@@ -53,7 +53,7 @@ dijkstra <-function(data, init_node){
     closest_node_index_in_pathdata<- which(everynodes %in% closest_node) #find the index of the closet node in pathdata
     # print(closest_node_index_in_pathdata)
     pathdata[closest_node_index_in_pathdata,4]<- data[closest_node_to_current_node_index,3] #update the length 
-    pathdata[closest_node_index_in_pathdata,3]<- closest_node # update the previous node
+   # pathdata[closest_node_index_in_pathdata,3]<- closest_node # update the previous node
     print(pathdata)
     # node_nextto_init <-data[neighbor_index_init,2] #find the node next to init_node
     
