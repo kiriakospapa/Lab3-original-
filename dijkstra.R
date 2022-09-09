@@ -1,4 +1,4 @@
-dijkstra <-function(data,init_node){
+dijkstra <-function(data, init_node){
   if(is.data.frame(data)==TRUE & init_node %in% data[,1]){
     
     ##setup
@@ -27,10 +27,17 @@ dijkstra <-function(data,init_node){
     length_of_nodes_next_to_init <- data[neighbor_index_init,3] #get the length data from data(wiki_graph)
     
     i<-1
-    for(i in length(node_nextto_init)){
-      
-      
-      
+    neighbor_index_init<- which(initnode %in% init_node) #find the row index of init_node
+    node_nextto_init <-data[neighbor_index_init,2] #find the node next to init_node
+
+    distances = data[neighbor_index_init, 3]
+
+
+    while(length(unvisited) == 0 ){
+
+        neighbor_index_init<- which(allnodes %in% init_node) #find the row index of init_node
+
+
     }
     
     
