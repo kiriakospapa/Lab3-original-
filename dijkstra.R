@@ -32,6 +32,8 @@ dijkstra <-function(data, init_node){
     init_index_ineverynodes<- which(everynodes %in% init_node)
     pathdata[init_index_ineverynodes, 4] <- 0
     pathdata[init_index_ineverynodes, 3] <- init_node
+    visited <-append(visited,init_node)
+    
       #Step2 calculate the path length next to init_node
     length_of_nodes_next_to_init <- data[neighbor_index_init,3] #get the length data from data(wiki_graph)
     
@@ -45,13 +47,14 @@ dijkstra <-function(data, init_node){
 
     distances = data[neighbor_index_init, 2]
     closest_node = data[closest_node_to_current_node, 2]
-
+    visited <-append(visited,closest_node)
+    
+    # print(visited)
      while(length(unvisited) > 0 ){
        
        
     
-        #neighbor_index_init<- which(allnodes %in% init_node) #find the row index of init_node
-         
+          #neighbor_index_init<- which(allnodes %in% init_node) #find the row index of init_node
           # print("first index of closest node is ")
           # print(first_index_of_current_node)
           # print("neightbour index is")
@@ -60,6 +63,7 @@ dijkstra <-function(data, init_node){
           # print(which(data[neighbor_index_of_current_node,3] == min(data[neighbor_index_of_current_node,3])))
           #print(closest_node_to_current_node)
           print(closest_node)
+       break
       }
 
     
@@ -92,4 +96,4 @@ wiki_graph <-data.frame(v1=c(1,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,6),
                    v2=c(2,3,6,1,3,4,1,2,4,6,2,3,5,4,6,1,3,5),
                    w=c(7,9,14,7,10,15,9,10,11,2,15,11,6,6,9,14,2,9))
 
-dijkstra(wiki_graph,1)
+dijkstra(wiki_graph,3)
