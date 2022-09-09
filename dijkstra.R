@@ -55,22 +55,15 @@ dijkstra <-function(data, init_node){
     pathdata[closest_node_index_in_pathdata,4]<- data[closest_node_to_current_node_index,3] #update the length 
     pathdata[closest_node_index_in_pathdata,3]<- closest_node # update the previous node
     print(pathdata)
-    # node_nextto_init <-data[neighbor_index_init,2] #find the node next to init_node
+    
+    
+    
     
     
     # print(visited)
      while(length(unvisited) > 0 ){
        
        
-    
-          #neighbor_index_init<- which(allnodes %in% init_node) #find the row index of init_node
-          # print("first index of closest node is ")
-          # print(first_index_of_current_node)
-          # print("neightbour index is")
-          # print(neighbor_index_init)
-          # print("the minimum is")
-          # print(which(data[neighbor_index_of_current_node,3] == min(data[neighbor_index_of_current_node,3])))
-          #print(closest_node_to_current_node)
           print(closest_node)
        break
       }
