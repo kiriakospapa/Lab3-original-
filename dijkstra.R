@@ -29,10 +29,6 @@ dijkstra <-function(data, init_node){
       }else{
         new_distance  <- data[index, 3] + pathdata[data[first_index_of_current_node, 1], 4]
         current_distance <- pathdata[data[index, 2], 4]
-        print(new_distance)
-        print(typeof(new_distance))
-        print(current_distance)
-        print(typeof(current_distance))
         if ( new_distance < current_distance){
           pathdata[data[index, 2], 4] <- new_distance
           pathdata[data[index, 2],3] <- data[first_index_of_current_node, 1]
@@ -94,8 +90,7 @@ dijkstra <-function(data, init_node){
     
     distances = data[indexes_of_neighbours, 2]
     closest_node = data[closest_node_to_current_node_index, 2]
-    #visited <- append(visited, closest_node)
-    
+
     closest_node_index_in_pathdata<- which(everynodes %in% closest_node) #find the index of the closet node in pathdata
     
     pathdata[closest_node_index_in_pathdata,4]<- data[closest_node_to_current_node_index,3] #update the length 
@@ -109,14 +104,12 @@ dijkstra <-function(data, init_node){
     
     
     while(length(unvisited) > 0 ){
-      #previous_node <- 0
       indexes_of_neighbours<- which(allnodes %in% closest_node) #find the row index of init_node
       
       neighbor_index_of_current_node<- which(data[,1]==closest_node) 
       nodes_nextto_current_node <-data[neighbor_index_of_current_node,2] #find the node next to init_node
       first_index_of_current_node <- indexes_of_neighbours[1]
       
-      #index_closest_node_to_current_node <- first_index_of_current_node + min(data[neighbor_index_of_current_node,2]) # min returns the index
       closest_node_to_current_node_index <- first_index_of_current_node + which(data[neighbor_index_of_current_node,3] == min(data[neighbor_index_of_current_node,3])) -1 # The variable contains the number of the closest node
       distances = data[indexes_of_neighbours, 2]
       previous_node <- data[first_index_of_current_node, 1]
@@ -159,23 +152,18 @@ dijkstra <-function(data, init_node){
         break
       }
       
-      ## WE NEED TO CHECK OUT IF THE CLOSEST NODE IS IN UNVISITED VECTOR
-      
+
       visited <-append(visited,closest_node)
       
       closest_node_index_in_pathdata<- which(everynodes %in% closest_node) #find the index of the closet node in pathdata
       
       
-      # it's because it doesn't find the closest node from the unvisited
-      #pathdata[closest_node_index_in_pathdata,4]<- data[closest_node_to_current_node_index,3] #update the length 
-      #pathdata[closest_node_index_in_pathdata, 4]<-update_distance_in_pathdata(data, pathdata, closest_node)
+ 
       
       pathdata[closest_node_index_in_pathdata,3]<- previous_node # update the previous node
       
-      #pathdata <- update_distance(indexes_of_neighbours, distances, visited, data, pathdata, previous_node, first_index_of_current_node)
-      
+
       unvisited <- unvisited[- which( closest_node == unvisited)]
-      print(pathdata)
       return
       
     }
@@ -188,19 +176,3 @@ return(pathdata[, 4])
   
 }
 
-
-
-
-
-
-
-
-
-
-
-###testing
-wiki_graph <-data.frame(v1=c(1,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,6),
-                        v2=c(2,3,6,1,3,4,1,2,4,6,2,3,5,4,6,1,3,5),
-                        w=c(7,9,14,7,10,15,9,10,11,2,15,11,6,6,9,14,2,9))
-
-dijkstra(wiki_graph,1)
