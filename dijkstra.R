@@ -6,7 +6,7 @@ dijkstra <-function(data, init_node){
     sorted_subvector <- sort(subvector)
     i_smallest_value <- sorted_subvector[i]
     
-    return(which(i_smallest_value == sorted_subvector))
+    return(which(i_smallest_value == subvector))
     
   }  
   
@@ -100,17 +100,18 @@ dijkstra <-function(data, init_node){
            
            for (boolean_value in check){
                if (boolean_value == FALSE){
-                i <- i + 1 
-                j <- i
+                # i <- i + 1 
+
                 stop<-TRUE
                } 
            }
            if (stop){
-               #i <- i + 1
+               
                print("tried to change the closest node")
-               closest_node_to_current_node_index <- first_index_of_current_node + pick_the_smallest_value(data[neighbor_index_of_current_node, 3], j) -1 # The variable contains the number of the closest node
-               cat("neighbor indexes of current node")
-               print(neighbor_index_of_current_node)
+               closest_node_to_current_node_index <- first_index_of_current_node + pick_the_smallest_value(data[neighbor_index_of_current_node, 3], i) -1 # The variable contains the number of the closest node
+               print(data[neighbor_index_of_current_node, 3])
+               cat("pick_the_smallest_value(data[neighbor_index_of_current_node, 3], i)")
+               print(pick_the_smallest_value(data[neighbor_index_of_current_node, 3], i))
                cat("first index of current node")
                print(first_index_of_current_node)
                cat("the result of the function")
@@ -124,6 +125,7 @@ dijkstra <-function(data, init_node){
                closest_node = data[closest_node_to_current_node_index, 2]
                cat("Updated current node is ")
                print(closest_node)
+               i<-i+1
                next
            }
            
@@ -179,6 +181,6 @@ wiki_graph <-data.frame(v1=c(1,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,6),
                    v2=c(2,3,6,1,3,4,1,2,4,6,2,3,5,4,6,1,3,5),
                    w=c(7,9,14,7,10,15,9,10,11,2,15,11,6,6,9,14,2,9))
 
-dijkstra(wiki_graph,3)
+dijkstra(wiki_graph,2)
 
 
