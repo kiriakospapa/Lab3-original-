@@ -17,11 +17,6 @@ The shortest path from the initial node to every other node.
 \description{
 Takes a graph and an initial node, then calculates the shortest path from the initial node to every other node in the graph.
 }
-\examples{
-data(wiki_graph)
-dijkstra(wiki_graph, 1)
-dijkstra(wiki_graph, 3)
-}
 \references{
 \url{https://en.wikipedia.org/wiki/Dijkstra\%27s_algorithm}
 }
