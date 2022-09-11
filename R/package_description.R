@@ -1,4 +1,5 @@
-#' Tittle 
+#' Tittle
+#'  
 #' description testtefwnefjewiweifi
 #' @docType package
 #' @author Kyriakos
