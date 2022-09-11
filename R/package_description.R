@@ -1,7 +1,9 @@
-#' Tittle
-#'  
-#' description testtefwnefjewiweifi
+#' Lab3
+#'
+#' Does good things
+#'
 #' @docType package
-#' @author Kyriakos
-#' @name Lab3
+#'  
+#' @author Lol \email{Lol@gmail.com}
+#' @name lab3
 NULL
