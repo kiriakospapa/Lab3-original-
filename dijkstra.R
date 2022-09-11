@@ -145,7 +145,7 @@ dijkstra <-function(data, initial_node){
       
       
       unvisited <- unvisited[- which( closest_node == unvisited)]
-      return
+
       
     }
     
