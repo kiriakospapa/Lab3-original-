@@ -4,6 +4,7 @@
 #' @param intial_node The node to start with.
 #' @return The shortest path from the initial node to every other node.
 #' @examples
+#' data(wiki_graph)
 #' dijkstra(wiki_graph, 1)
 #' dijkstra(wiki_graph, 3)
 
