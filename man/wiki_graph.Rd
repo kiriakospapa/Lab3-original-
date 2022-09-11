@@ -6,6 +6,7 @@
 \description{
 The data.frame with three variables (v1, v2 and w) that contains the edges of the graph (fromv1 to v2) with the weight of the edge (w) }
 \usage{
+data(wiki_graph)
 wiki_graph
 }
 %- maybe also 'usage' for other objects documented here.
