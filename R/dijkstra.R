@@ -6,6 +6,7 @@
 #' @return The shortest path from the initial node to every other node.
 #' @export 
 #' @examples
+#' data(wiki_graph)
 #' dijkstra(wiki_graph, 1)
 #' dijkstra(wiki_graph, 3)
 #' @references \url{https://en.wikipedia.org/wiki/Dijkstra\%27s_algorithm}
