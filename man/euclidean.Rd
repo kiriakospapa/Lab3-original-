@@ -21,6 +21,6 @@ Find the greatest common divisor of two numbers.
 euclidean(123612, 13892347912)
 euclidean(100, 1000)
 }
-\references{
-\url{https://en.wikipedia.org/wiki/Euclidean_algorithm}
+\seealso{
+[Euclidean algorithm on wiki](https://en.wikipedia.org/wiki/Euclidean algorithm)
 }
