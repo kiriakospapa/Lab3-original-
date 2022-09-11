@@ -2,7 +2,7 @@
 % Please edit documentation in R/euclidean.R
 \name{euclidean}
 \alias{euclidean}
-\title{Find the greatest common divisor of two numbers.}
+\title{Euclidean Algorithm}
 \usage{
 euclidean(a,b)
 }
@@ -21,6 +21,6 @@ Find the greatest common divisor of two numbers.
 euclidean(123612, 13892347912)
 euclidean(100, 1000)
 }
-\seealso{
-[Euclidean algorithm on wiki](https://en.wikipedia.org/wiki/Euclidean algorithm)
+\references{
+\url{https://en.wikipedia.org/wiki/Euclidean_algorithm}
 }

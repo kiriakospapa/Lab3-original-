@@ -1,3 +1,5 @@
+#' Djikstra Algorithm
+#' 
 #' Takes a graph and an initial node, then calculates the shortest path from the initial node to every other node in the graph.
 #' 
 #' @param data A data.frame with three variables (v1, v2 and w) that contains the nodes of the graph (from v1 to v2) with the length of the node (w)
@@ -5,7 +7,10 @@
 #' @usage dijkstra(data, initial_node)
 #' @return The shortest path from the initial node to every other node.
 #' @export 
-#' @seealso [Dijkstra algorithm on wiki](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+#' @examples
+#' dijkstra(wiki_graph, 1)
+#' dijkstra(wiki_graph, 3)
+#' @references \url{https://en.wikipedia.org/wiki/Dijkstra\%27s_algorithm}
 
 
 dijkstra <-function(data, initial_node){

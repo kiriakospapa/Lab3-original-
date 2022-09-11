@@ -1,3 +1,4 @@
+#' Euclidean Algorithm
 #' 
 #' Find the greatest common divisor of two numbers. 
 #' 
@@ -9,8 +10,8 @@
 #' @examples
 #' euclidean(123612, 13892347912)
 #' euclidean(100, 1000)
-#' @seealso [Euclidean algorithm on wiki](https://en.wikipedia.org/wiki/Euclidean algorithm)
-#' 
+#' @references \url{https://en.wikipedia.org/wiki/Euclidean_algorithm}
+
 euclidean <- function(a, b){
   
   biggest <- b
