@@ -1,5 +1,4 @@
-euclidean <-
-function(a, b){
+euclidean <- function(a, b){
   
   biggest <- b
   smallest <- a

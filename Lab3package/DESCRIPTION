@@ -1,9 +1,12 @@
 Package: Lab3package
 Type: Package
-Title: What the package does (short line)
+Title: The euclidean and dijkstra algorithms
 Version: 1.0
-Date: 2022-09-07
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Date: 2022-09-11
+Author: Yi Hung Chen, Kyriakos Papadopoulos
+Maintainer: Yi Hung Chen<yihch883@student.liu.se> ,Kyriakos Papadopoulos<kyrpa853@student.liu.se>
+Description: The euclidean algorithm is to find the greatest common divisor of two numbers. The dijkstra algorithm takes a graph and an initial node and calculates the shortest path from the initial node to every other node in the graph.
+License: GPL-2
+Encoding: UTF-8
+RoxygenNote: 7.2.1
+Depends: R (>= 3.5.0)
