@@ -6,7 +6,7 @@ Date: 2022-09-11
 Author: Yi Hung Chen, Kyriakos Papadopoulos
 Maintainer: Yi Hung Chen<yihch883@student.liu.se> ,Kyriakos Papadopoulos<kyrpa853@student.liu.se>
 Description: The euclidean algorithm is to find the greatest common divisor of two numbers. The dijkstra algorithm takes a graph and an initial node and calculates the shortest path from the initial node to every other node in the graph.
-License: GPL-2
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.2.1
 Depends: R (>= 3.5.0)
