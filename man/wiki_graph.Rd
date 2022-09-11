@@ -10,6 +10,6 @@ wiki_graph
 }
 %- maybe also 'usage' for other objects documented here.
 \references{
-\url{ https://en.wikipedia.org/wiki/Dijkstra\%27s_algorithm}
+\url{https://en.wikipedia.org/wiki/Dijkstra\%27s_algorithm}
 }
 
