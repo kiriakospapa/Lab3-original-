@@ -9,5 +9,3 @@
 #'   \item{w}{weight or distance}
 #'   ...
 #' }
-
-"wiki_graph"
