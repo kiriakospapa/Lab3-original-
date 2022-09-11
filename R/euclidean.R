@@ -11,6 +11,7 @@
 #' euclidean(100, 1000)
 #' @references \url{https://en.wikipedia.org/wiki/Euclidean_algorithm}
 #' 
+
 euclidean <- function(a, b){
   
   biggest <- b
