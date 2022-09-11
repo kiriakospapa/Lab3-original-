@@ -4,9 +4,8 @@
 #' @param initial_node The node to start with.
 #' @usage dijkstra(data, initial_node)
 #' @return The shortest path from the initial node to every other node.
-#' @export 
 #' @references \url{https://en.wikipedia.org/wiki/Dijkstra\%27s_algorithm}
-
+#' @export 
 
 dijkstra <-function(data, initial_node){
   
