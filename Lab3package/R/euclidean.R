@@ -1,3 +1,12 @@
+#' Find the greatest common divisor of two numbers. 
+#' 
+#' @param a A number.
+#' @param b A number.
+#' @return greatest common divisor of 'a' & 'b'.
+#' @examples
+#' euclidean(123612, 13892347912)
+#' euclidean(100, 1000)
+
 euclidean <- function(a, b){
   
   biggest <- b

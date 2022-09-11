@@ -1,3 +1,15 @@
+#' Takes a graph and an initial node, then calculates the shortest path from the initial node to every other node in the graph.
+#' 
+#' @param data A data.frame with three variables (v1, v2 and w) that contains the nodes of the graph (from v1 to v2) with the length of the node (w)
+#' @param intial_node The node to start with.
+#' @return The shortest path from the initial node to every other node.
+#' @examples
+#' dijkstra(wiki_graph, 1)
+#' dijkstra(wiki_graph, 3)
+
+
+
+
 dijkstra <-function(data, initial_node){
   
   
