@@ -41,9 +41,11 @@ dijkstra <-function(data, initial_node){
    }
   
    #----------------------CHECK IF INPUTS ARE CORRECT----------------------------- 
-  if(any(colnames(data) != c("v1", "v2", "w"))){stop()} # Check if the names of each column of dataframe are correct
-  if(NCOL(data)!= 3){stop()} # # Check if the dimension (number of columns) of input data is correct
-  if(is.data.frame(data)==TRUE & initial_node %in% data[,1] ){
+  
+   if(length(data[,1]) != length(data[,2]) | length(data[,1]) != length(data[,3])){stop()}
+   if(any(colnames(data) != c("v1", "v2", "w"))){stop()} # Check if the names of each column of dataframe are correct
+  
+   if(is.data.frame(data)==TRUE & initial_node %in% data[,1] ){
     
       #----------------------CREATE THE TABLE CALLED PATHDATA-----------------------------
       allnodes<-data[,1]  # Take every elements from first column of input data
