@@ -21,6 +21,13 @@ euclidean <- function(a, b){
     biggest <- a
     smallest <- b
   }
+  if(a<0){
+    a <- -a
+  }
+  
+  if(b<0){
+    b <- -b
+  }
   
   reminder = biggest %% smallest
   remainders_list<- c(a, b, reminder)
