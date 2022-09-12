@@ -9,4 +9,5 @@
 #'   \item{v2}{destination node}
 #'   \item{w}{weight or length}
 #' }
+
 "wiki_graph"
