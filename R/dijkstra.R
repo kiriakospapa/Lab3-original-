@@ -15,14 +15,13 @@
 
 dijkstra <-function(data, initial_node){
   
-  
     pick_the_smallest_value <- function(subvector, i){
         sorted_subvector <- sort(subvector)
         i_smallest_value <- sorted_subvector[i]
         return(which(i_smallest_value == subvector))
     }  
   
-  
+   # Update the pathdata dataframe when we find new shortest path  
    update_distance <- function(indexes_of_neighbours, distances, visited, data, pathdata, previous_node, index_first_of_current_node){
        for(index in indexes_of_neighbours){
            if(data[index, 2] %in% visited){
@@ -44,10 +43,9 @@ dijkstra <-function(data, initial_node){
   
    if(length(data[,1]) != length(data[,2]) | length(data[,1]) != length(data[,3])){stop()}
    if(any(colnames(data) != c("v1", "v2", "w"))){stop()} # Check if the names of each column of dataframe are correct
-  
    if(is.data.frame(data)==TRUE & initial_node %in% data[,1] ){
     
-      #----------------------CREATE THE TABLE CALLED PATHDATA-----------------------------
+    #----------------------CREATE THE TABLE CALLED PATHDATA-----------------------------
       allnodes<-data[,1]  # Take every elements from first column of input data
       unvisited<-allnodes[!duplicated(allnodes)] # Find out how many different elements in first column of data
       visited<-c() # Create a empty vector to store visited nodes later on
@@ -73,19 +71,13 @@ dijkstra <-function(data, initial_node){
     
       # Step2: calculate the path length next to initial_node
       length_of_nodes_next_to_init <- data[indexes_of_neighbours,3] # Get the length data from data(wiki_graph)
-        
-        
       index_neighbors_next_to_current_node<- which(data[,1]==initial_node) # Find the row index of initial_node
       nodes_nextto_current_node <-data[indexes_of_neighbours,2] # Find the node next to initial_node
       index_first_of_current_node <- indexes_of_neighbours[1]
-      
       index_closest_node_to_current_node <- index_first_of_current_node + which(data[index_neighbors_next_to_current_node,3] == min(data[index_neighbors_next_to_current_node,3])) -1 # The variable contains the number of the closest node
-      
       distances = data[indexes_of_neighbours, 2]
       closest_node = data[index_closest_node_to_current_node, 2]
-      
       closest_node_index_in_pathdata<- which(everynodes %in% closest_node) #find the index of the closet node in pathdata
-      
       pathdata[closest_node_index_in_pathdata,4]<- data[index_closest_node_to_current_node,3] #update the length
       pathdata[closest_node_index_in_pathdata,3]<- initial_node # update the previous node
       previous_node <- closest_node
@@ -98,16 +90,11 @@ dijkstra <-function(data, initial_node){
       pathdata <- update_distance(indexes_of_neighbours, distances, visited, data, pathdata,  
                                   previous_node, index_first_of_current_node)
       #---------------- MOVE TO THE CLOSEST NODE OF INITIAL NODE -------------------------      
-      
-      
-    
     while(length(unvisited) > 0 ){
       indexes_of_neighbours<- which(allnodes %in% closest_node) # The indexes of neighbor nodes in the given dataframe.
-      
       index_neighbors_next_to_current_node<- which(data[,1]==closest_node)
       nodes_nextto_current_node <-data[index_neighbors_next_to_current_node,2] # Find the node next to current node
       index_first_of_current_node <- indexes_of_neighbours[1]
-      
       index_closest_node_to_current_node <- index_first_of_current_node + which(data[index_neighbors_next_to_current_node,3] == min(data[index_neighbors_next_to_current_node,3])) -1 # The variable contains the number of the closest node
       distances = data[indexes_of_neighbours, 2]
       previous_node <- data[index_first_of_current_node, 1]
@@ -126,6 +113,8 @@ dijkstra <-function(data, initial_node){
             stop<-TRUE
           }
         }
+        
+        # If the closest node is already visited, we find the 2nd closest node, etc.
         if (stop){
           
           index_closest_node_to_current_node <- index_first_of_current_node + pick_the_smallest_value(data[index_neighbors_next_to_current_node, 3], i) -1 # The variable contains the number of the closest node
@@ -141,24 +130,14 @@ dijkstra <-function(data, initial_node){
         break
       }
       
-      
       visited <-append(visited,closest_node)
-      
       closest_node_index_in_pathdata<- which(everynodes %in% closest_node) #find the index of the closet node in pathdata
-      
-      
-      
-      
       pathdata[closest_node_index_in_pathdata,3]<- previous_node # update the previous node
-      
-      
       unvisited <- unvisited[- which( closest_node == unvisited)]
-      
     }
     
     return(pathdata[, 4])    
-    
-    
+
   }
   else{stop()}
   
